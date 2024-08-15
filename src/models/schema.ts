@@ -1,7 +1,7 @@
 import { client } from "./client";
 
 client.exec(`
-    CREATE TABLE IF NOT EXIST tools (
+    CREATE TABLE IF NOT EXISTS tools (
         id TEXT PRIMARY KEY,
         name TEXT NOT NULL,
         description TEXT NOT NULL,
@@ -13,7 +13,7 @@ client.exec(`
          
     );
 
-    CREATE TABLE IF NOT EXIST analytics (
+    CREATE TABLE IF NOT EXISTS analytics (
         id TEXT PRIMARY KEY,
         tool_id TEXT NOT NULL,
         visits INTEGER DEFAULT 1,
