@@ -2,14 +2,20 @@
   "name": "toolhunt-bexlite",
   "version": "1.0.50",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "tw:run": "bunx tailwindcss -i src/views/index.css -o ./public/globals.css --watch",
+    "dev": "bun run --watch src/index.ts",
+    "start": "concurrently \"bun dev\" \"bun tw:run\""
   },
   "dependencies": {
+    "@elysiajs/html": "^1.1.0",
+    "@elysiajs/static": "^1.1.0",
+    "@paralleldrive/cuid2": "^2.2.2",
     "elysia": "latest"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "concurrently": "^8.2.2",
+    "tailwindcss": "^3.4.10"
   },
   "module": "src/index.js"
 }
