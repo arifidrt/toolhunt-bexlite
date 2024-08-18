@@ -493,7 +493,9 @@ button:hover {
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
-input {
+input,
+  textarea,
+  select {
   display: block;
   width: 100%;
   border-radius: 0.5rem;
@@ -516,19 +518,23 @@ input {
   transition-duration: 200ms;
 }
 
-input::-moz-placeholder {
+input::-moz-placeholder, textarea::-moz-placeholder, select::-moz-placeholder {
   font-weight: 400;
   --tw-text-opacity: 1;
   color: rgb(71 85 105 / var(--tw-text-opacity));
 }
 
-input::placeholder {
+input::placeholder,
+  textarea::placeholder,
+  select::placeholder {
   font-weight: 400;
   --tw-text-opacity: 1;
   color: rgb(71 85 105 / var(--tw-text-opacity));
 }
 
-input:focus {
+input:focus,
+  textarea:focus,
+  select:focus {
   --tw-border-opacity: 1;
   border-color: rgb(148 163 184 / var(--tw-border-opacity));
   outline: 2px solid transparent;
@@ -647,16 +653,20 @@ input:focus {
   margin: auto;
 }
 
-.mt-12 {
-  margin-top: 3rem;
-}
-
 .-mt-10 {
   margin-top: -2.5rem;
 }
 
 .ml-6 {
   margin-left: 1.5rem;
+}
+
+.mt-12 {
+  margin-top: 3rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .flex {
@@ -667,20 +677,24 @@ input:focus {
   display: grid;
 }
 
+.h-16 {
+  height: 4rem;
+}
+
 .h-20 {
   height: 5rem;
 }
 
-.h-16 {
-  height: 4rem;
+.w-16 {
+  width: 4rem;
 }
 
 .w-72 {
   width: 18rem;
 }
 
-.w-16 {
-  width: 4rem;
+.w-\[350px\] {
+  width: 350px;
 }
 
 .max-w-4xl {
@@ -731,12 +745,12 @@ input:focus {
   overflow: hidden;
 }
 
-.rounded-xl {
-  border-radius: 0.75rem;
-}
-
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
 }
 
 .border-2 {
@@ -747,28 +761,28 @@ input:focus {
   border-bottom-width: 1px;
 }
 
-.border-slate-900 {
-  --tw-border-opacity: 1;
-  border-color: rgb(15 23 42 / var(--tw-border-opacity));
-}
-
 .border-slate-800 {
   --tw-border-opacity: 1;
   border-color: rgb(30 41 59 / var(--tw-border-opacity));
 }
 
-.bg-slate-950 {
+.border-slate-900 {
+  --tw-border-opacity: 1;
+  border-color: rgb(15 23 42 / var(--tw-border-opacity));
+}
+
+.bg-slate-400 {
   --tw-bg-opacity: 1;
-  background-color: rgb(2 6 23 / var(--tw-bg-opacity));
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
 }
 
 .bg-slate-900\/50 {
   background-color: rgb(15 23 42 / 0.5);
 }
 
-.bg-slate-400 {
+.bg-slate-950 {
   --tw-bg-opacity: 1;
-  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+  background-color: rgb(2 6 23 / var(--tw-bg-opacity));
 }
 
 .p-6 {

@@ -1,5 +1,6 @@
 import { Elysia } from "elysia";
 import { Home } from "../views/pages/home";
+import { SubmissionForm } from "../views/pages/submissionForm";
 
 export const appRouter = new Elysia()
 
@@ -7,7 +8,7 @@ export const appRouter = new Elysia()
   .get("/", () => <Home />)
   .get("/tools", () => {})
   .get("/tools/manage", () => {})
-  .get("/tools/submissions", () => {})
+  .get("/tools/submissions", () => <SubmissionForm />)
 
   // functionality
   .get("/tools/:id", () => {})
