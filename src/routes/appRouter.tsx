@@ -1,9 +1,10 @@
 import { Elysia } from "elysia";
+import { Home } from "../views/pages/home";
 
 export const appRouter = new Elysia()
 
   // interfaces
-  .get("/", () => {})
+  .get("/", () => <Home />)
   .get("/tools", () => {})
   .get("/tools/manage", () => {})
   .get("/tools/submissions", () => {})

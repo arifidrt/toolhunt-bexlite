@@ -1,4 +1,4 @@
-import html from "@elysiajs/html";
+import { html } from "@elysiajs/html";
 import staticPlugin from "@elysiajs/static";
 import { Elysia } from "elysia";
 import { appRouter } from "./routes/appRouter";

@@ -7,7 +7,7 @@
     "start": "concurrently \"bun dev\" \"bun tw:run\""
   },
   "dependencies": {
-    "@elysiajs/html": "^1.1.0",
+    "@elysiajs/html": "1.0.0",
     "@elysiajs/static": "^1.1.0",
     "@paralleldrive/cuid2": "^2.2.2",
     "elysia": "latest"
