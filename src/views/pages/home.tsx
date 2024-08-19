@@ -19,12 +19,7 @@ export const Home = () => {
           <p>High quality devtools and resources that help you ship faster</p>
           <input placeholder="search tools" class="w-72" />
         </section>
-        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <ToolCard />
-          <ToolCard />
-          <ToolCard />
-          <ToolCard />
-        </section>
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8" hx-get="/tools" hx-trigger="load"></section>
       </main>
     </TemplateBase>
   );
