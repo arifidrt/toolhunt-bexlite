@@ -3,7 +3,8 @@ import { client } from "../models/client";
 import { ITool } from "../types/entity";
 
 export const toolServices = {
-  getData: () => {
+  getData: (q: string) => {
+    const query = q || "";
     const allTools = client
       .query(
         `
@@ -18,9 +19,11 @@ export const toolServices = {
             tools t
             JOIN
             analytics a on a.tool_id  = t.id
+            WHERE
+            t.name LIKE ? or t.description LIKE ?
             `
       )
-      .all() as ITool[];
+      .all(`%${query}%`, `%${query}%`) as ITool[];
     return allTools;
   },
 

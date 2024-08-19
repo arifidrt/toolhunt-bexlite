@@ -17,9 +17,9 @@ export const Home = () => {
           <div>Introducing Toolhunt</div>
           <h1 class="lg:px-32 text-center">Discover the beneficial tools for your development</h1>
           <p>High quality devtools and resources that help you ship faster</p>
-          <input placeholder="search tools" class="w-72" />
+          <input name="q" placeholder="search tools" class="w-72" hx-post="/tools" hx-target="#tools" hx-trigger="keyup delay:500ms" />
         </section>
-        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8" hx-get="/tools" hx-trigger="load"></section>
+        <section id="tools" class="grid grid-cols-1 lg:grid-cols-3 gap-8" hx-post="/tools" hx-trigger="load" hx-swap="transition:true"></section>
       </main>
     </TemplateBase>
   );

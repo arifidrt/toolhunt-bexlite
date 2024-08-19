@@ -4,9 +4,10 @@ import { ITool } from "../types/entity";
 import { ToolCard } from "../views/components/toolCard";
 
 export const appController = {
-  handleGetTools: () => {
+  handleGetTools: ({ body }: Context) => {
     try {
-      const allTools = toolServices.getData();
+      const { q } = body as { q: string };
+      const allTools = toolServices.getData(q);
 
       return (
         <>

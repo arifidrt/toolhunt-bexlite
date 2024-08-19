@@ -7,7 +7,7 @@ export const appRouter = new Elysia()
 
   // interfaces
   .get("/", () => <Home />)
-  .get("/tools", appController.handleGetTools)
+  .post("/tools", appController.handleGetTools)
   .get("/tools/manage", () => {})
   .get("/tools/submissions", () => <SubmissionForm />)
 
