@@ -649,6 +649,16 @@ input:focus,
   --tw-contain-style:  ;
 }
 
+.msg-error {
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(159 18 57 / var(--tw-bg-opacity));
+  padding: 1rem;
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgb(254 205 211 / var(--tw-text-opacity));
+}
+
 .m-auto {
   margin: auto;
 }

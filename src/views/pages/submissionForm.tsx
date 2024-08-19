@@ -13,7 +13,7 @@ export const SubmissionForm = () => {
           <h1 class="lg:px-32 text-center">Share your tools</h1>
           <p>We will verify and add your tools</p>
         </section>
-        <form class="w-[350px] m-auto space-y-2" hx-post="/tools/submissions" hx-encoding="multipart/form-data">
+        <form class="w-[350px] m-auto space-y-2" hx-post="/tools/submissions" hx-encoding="multipart/form-data" hx-target="#message">
           <input name="name" placeholder="name" />
           <input name="image" type="file" />
           <input name="url" placeholder="url" />
@@ -25,6 +25,7 @@ export const SubmissionForm = () => {
           </select>
           <textarea name="description" rows="5" placeholder="description" />
           <button>Submit</button>
+          <div id="message"></div>
         </form>
       </main>
     </TemplateBase>
