@@ -13,7 +13,7 @@ export const SubmissionForm = () => {
           <h1 class="lg:px-32 text-center">Share your tools</h1>
           <p>We will verify and add your tools</p>
         </section>
-        <form class="w-[350px] m-auto space-y-2">
+        <form class="w-[350px] m-auto space-y-2" hx-post="/tools/submissions" hx-encoding="multipart/form-data">
           <input name="name" placeholder="name" />
           <input name="image" type="file" />
           <input name="url" placeholder="url" />

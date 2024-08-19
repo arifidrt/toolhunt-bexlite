@@ -34,7 +34,7 @@ export const toolServices = {
         INSERT INTO tools (id, name, description, image, url, category) VALUES (?,?,?,?,?,?)
         `
       )
-      .run(toolId, name, description, image, url, category);
+      .run(toolId, name, description, image as string, url, category);
     client
       .query(
         `
