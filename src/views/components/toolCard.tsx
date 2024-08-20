@@ -10,7 +10,7 @@ export const ToolCard = ({ id, name, description, image, visits }: ITool) => {
       <div class="p-6 space-y-2">
         <h3>{name}</h3>
         <p class="text-sm">{description}</p>
-        <p class="text-sm">{visits}visits</p>
+        <p class="text-sm">{visits} visits</p>
       </div>
     </main>
   );

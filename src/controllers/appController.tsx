@@ -2,6 +2,7 @@ import { Context } from "elysia";
 import { toolServices } from "../services/toolServices";
 import { ITool } from "../types/entity";
 import { ToolCard } from "../views/components/toolCard";
+import { Manage } from "../views/pages/manage";
 
 export const appController = {
   handleGetTools: ({ body }: Context) => {
@@ -40,5 +41,11 @@ export const appController = {
     } catch (error) {
       return <div class="msg-error">Something went wrong!</div>;
     }
+  },
+
+  handleManageTool: () => {
+    const allTools = toolServices.getData();
+
+    return <Manage tools={allTools} />;
   },
 };

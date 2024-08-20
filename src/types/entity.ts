@@ -7,5 +7,5 @@ export interface ITool {
   url: string;
   visits: number;
   verified: number;
-  is_public: number;
+  isPublic: number;
 }

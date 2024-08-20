@@ -7,11 +7,11 @@ export const appRouter = new Elysia()
 
   // interfaces
   .get("/", () => <Home />)
-  .post("/tools", appController.handleGetTools)
-  .get("/tools/manage", () => {})
+  .get("/tools/manage", appController.handleManageTool)
   .get("/tools/submissions", () => <SubmissionForm />)
 
   // functionality
+  .post("/tools", appController.handleGetTools)
   .get("/tools/:id", () => {})
   .post("/tools/submissions", appController.handleCreateTool)
   .patch("/tools/:id", () => {});

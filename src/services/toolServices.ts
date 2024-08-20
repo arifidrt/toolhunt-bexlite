@@ -3,7 +3,7 @@ import { client } from "../models/client";
 import { ITool } from "../types/entity";
 
 export const toolServices = {
-  getData: (q: string) => {
+  getData: (q?: string) => {
     const query = q || "";
     const allTools = client
       .query(
@@ -13,6 +13,8 @@ export const toolServices = {
             t.name AS name,
             t.description AS description,
             t.image AS image,
+            t.verified AS verified,
+            t.is_public AS isPublic,
             t.url AS url,
             a.visits AS visits
             FROM
@@ -27,7 +29,7 @@ export const toolServices = {
     return allTools;
   },
 
-  createData: ({ name, description, image, url, category }: Omit<ITool, "id" | "visits" | "verified" | "is_public">) => {
+  createData: ({ name, description, image, url, category }: Omit<ITool, "id" | "visits" | "verified" | "isPublic">) => {
     const toolId = createId();
     const analyticId = createId();
 
