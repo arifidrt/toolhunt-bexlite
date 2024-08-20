@@ -3,8 +3,9 @@ import { client } from "../models/client";
 import { ITool } from "../types/entity";
 
 export const toolServices = {
-  getData: (q?: string) => {
+  getData: ({ isPublic, q }: { isPublic: boolean; q?: string }) => {
     const query = q || "";
+    const CLAUSE = isPublic ? `AND t.is_public = 1` : ``;
     const allTools = client
       .query(
         `
@@ -22,7 +23,8 @@ export const toolServices = {
             JOIN
             analytics a on a.tool_id  = t.id
             WHERE
-            t.name LIKE ? or t.description LIKE ?
+            (t.name LIKE ? or t.description LIKE ?)
+            ${CLAUSE}
             `
       )
       .all(`%${query}%`, `%${query}%`) as ITool[];
@@ -67,5 +69,17 @@ export const toolServices = {
       )
       .all(toolId) as ITool[];
     return currentTool[0];
+  },
+
+  publishData: (id: string, mode: "publish" | "unpublish") => {
+    const publishValue = mode === "publish" ? 1 : 0;
+
+    client
+      .query(
+        `
+      UPDATE tools SET is_public = ? WHERE id = ?
+      `
+      )
+      .run(publishValue, id);
   },
 };

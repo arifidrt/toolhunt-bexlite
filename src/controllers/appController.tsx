@@ -8,7 +8,7 @@ export const appController = {
   handleGetTools: ({ body }: Context) => {
     try {
       const { q } = body as { q: string };
-      const allTools = toolServices.getData(q);
+      const allTools = toolServices.getData({ isPublic: true, q });
 
       return (
         <>
@@ -44,8 +44,27 @@ export const appController = {
   },
 
   handleManageTool: () => {
-    const allTools = toolServices.getData();
+    const allTools = toolServices.getData({ isPublic: false });
 
     return <Manage tools={allTools} />;
+  },
+
+  handlePublishTool: ({ params }: Context) => {
+    const { id } = params;
+
+    toolServices.publishData(id, "publish");
+
+    return new Response(null, {
+      headers: { "HX-Redirect": "/" },
+    });
+  },
+  handleUnpublishTool: ({ params }: Context) => {
+    const { id } = params;
+
+    toolServices.publishData(id, "unpublish");
+
+    return new Response(null, {
+      headers: { "HX-Redirect": "/" },
+    });
   },
 };

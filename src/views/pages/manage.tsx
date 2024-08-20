@@ -17,7 +17,15 @@ export const Manage = ({ tools }: { tools: ITool[] }) => {
                   <h3>{tool.name}</h3>
                   <p>{tool.description}</p>
                   <div class="flex gap-2">
-                    {tool.isPublic == 0 ? <button class="w-fit">Publish</button> : <button class="w-fit">Unpublish</button>}
+                    {tool.isPublic == 0 ? (
+                      <button class="w-fit" hx-patch={`/tools/${tool.id}/publish`}>
+                        Publish
+                      </button>
+                    ) : (
+                      <button class="w-fit" hx-patch={`/tools/${tool.id}/unpublish`}>
+                        Unpublish
+                      </button>
+                    )}
                     {tool.verified === 0 ? <button class="w-fit">Verify</button> : <button class="w-fit">Unverify</button>}
                   </div>
                 </div>

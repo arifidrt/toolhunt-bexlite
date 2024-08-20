@@ -14,4 +14,5 @@ export const appRouter = new Elysia()
   .post("/tools", appController.handleGetTools)
   .get("/tools/:id", () => {})
   .post("/tools/submissions", appController.handleCreateTool)
-  .patch("/tools/:id", () => {});
+  .patch("/tools/:id/publish", appController.handlePublishTool)
+  .patch("/tools/:id/unpublish", appController.handleUnpublishTool);
