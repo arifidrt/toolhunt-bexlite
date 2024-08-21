@@ -26,7 +26,15 @@ export const Manage = ({ tools }: { tools: ITool[] }) => {
                         Unpublish
                       </button>
                     )}
-                    {tool.verified === 0 ? <button class="w-fit">Verify</button> : <button class="w-fit">Unverify</button>}
+                    {tool.verified === 0 ? (
+                      <button class="w-fit" hx-patch={`/tools/${tool.id}/verify`}>
+                        Verify
+                      </button>
+                    ) : (
+                      <button class="w-fit" hx-patch={`/tools/${tool.id}/unverify`}>
+                        Unverify
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>

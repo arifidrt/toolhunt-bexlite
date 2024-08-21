@@ -82,4 +82,16 @@ export const toolServices = {
       )
       .run(publishValue, id);
   },
+
+  verifyData: (id: string, mode: "verify" | "unverify") => {
+    const verifyValue = mode === "verify" ? 1 : 0;
+
+    client
+      .query(
+        `
+      UPDATE tools SET verified = ? WHERE id = ?
+      `
+      )
+      .run(verifyValue, id);
+  },
 };

@@ -67,4 +67,23 @@ export const appController = {
       headers: { "HX-Redirect": "/" },
     });
   },
+
+  handleVerifyTool: ({ params }: Context) => {
+    const { id } = params;
+
+    toolServices.verifyData(id, "verify");
+
+    return new Response(null, {
+      headers: { "HX-Redirect": "/" },
+    });
+  },
+  handleUnerifyTool: ({ params }: Context) => {
+    const { id } = params;
+
+    toolServices.verifyData(id, "unverify");
+
+    return new Response(null, {
+      headers: { "HX-Redirect": "/" },
+    });
+  },
 };
