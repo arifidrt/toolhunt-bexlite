@@ -1,4 +1,4 @@
-import { Context } from "elysia";
+import { Context, redirect } from "elysia";
 import { toolServices } from "../services/toolServices";
 import { ITool } from "../types/entity";
 import { ToolCard } from "../views/components/toolCard";
@@ -85,5 +85,11 @@ export const appController = {
     return new Response(null, {
       headers: { "HX-Redirect": "/" },
     });
+  },
+  handleRedirect: ({ params, set }: Context) => {
+    const { id } = params;
+
+    const { url } = toolServices.updateAnalytics(id);
+    return redirect(url);
   },
 };

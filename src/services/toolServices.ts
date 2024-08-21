@@ -94,4 +94,11 @@ export const toolServices = {
       )
       .run(verifyValue, id);
   },
+
+  updateAnalytics: (id: string) => {
+    client.query(`UPDATE analytics SET visits = visits + 1 WHERE tool_id = ?`).run(id);
+
+    const url = client.query(`SELECT url from tools WHERE id = ?`).all(id);
+    return url[0];
+  },
 };

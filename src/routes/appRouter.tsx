@@ -12,7 +12,7 @@ export const appRouter = new Elysia()
 
   // functionality
   .post("/tools", appController.handleGetTools)
-  .get("/tools/:id", () => {})
+  .get("/tools/:id", appController.handleRedirect)
   .post("/tools/submissions", appController.handleCreateTool)
   .patch("/tools/:id/publish", appController.handlePublishTool)
   .patch("/tools/:id/unpublish", appController.handleUnpublishTool)

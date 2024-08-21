@@ -9,7 +9,9 @@ export const ToolCard = ({ id, name, description, image, visits, verified }: ITo
       {/* <div class="bg-slate-400 w-16 h-16 rounded-lg ml-6 -mt-10" /> */}
       <div class="p-6 space-y-2">
         <div class="flex gap-2 items-center">
-          <h3>{name}</h3>
+          <a href={`/tools/${id}`}>
+            <h3>{name}</h3>
+          </a>
           {verified === 1 && (
             <div class="text-blue-400">
               <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
